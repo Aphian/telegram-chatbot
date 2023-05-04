@@ -1,10 +1,15 @@
 from flask import Flask, request
 import requests
+from dotenv import load_dotenv
+import os
+
 import utils
+
+load_dotenv()
 
 app = Flask('telegram-chatbot')
 
-TOKEN = '6178945223:AAFZMM3tqF_EDQvUiJc1Rvu2GhTbUz4YMwY'
+TOKEN = os.environ['BOT_TOKEN']
 BASE_URL = f'https://api.telegram.org/bot{TOKEN}'
 
 @app.route('/telegram', methods=['POST']) 
