@@ -1,19 +1,17 @@
 import requests
 from bs4 import BeautifulSoup
 
-URL = 'https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=1065'
+def get_lotto():
+    URL = 'https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=1065'
 
-res = requests.get(URL)
+    res = requests.get(URL)
 
-data = res.json()
+    data = res.json()
 
-numbers = []
-for i in range(1, 7):
-    numbers.append(data[f'drwtNo{i}'])
+    numbers = []
+    for i in range(1, 7):
+        numbers.append(data[f'drwtNo{i}'])
 
-return_msg = f"번호 : {numbers}, 보너스 : {data['bnusNo']}, 상금 : {data['firstWinamnt']}"
+    return f"번호 : {numbers}, 보너스 : {data['bnusNo']}, 상금 : {data['firstWinamnt']}"
 
-
-print(data['bnusNo'])
-
-print(data['firstWinamnt'])
+# print(get_lotto())

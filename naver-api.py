@@ -1,11 +1,16 @@
 import requests
 
-URL = 'https://openapi.naver.com/v1/search/shop.json?query=GTX3060'
-headers = {    
-    'X-Naver-Client-Id' : 'SSO3GRfmtsics4OrPq92',
-    'X-Naver-Client-Secret' : 'XKC8TVhwpT'
-}
+def get_naver_shopping(item):
 
-res = requests.get(URL, headers=headers)
+    URL = f'https://openapi.naver.com/v1/search/shop.json?query={item}'
+    headers = {    
+        'X-Naver-Client-Id' : 'SSO3GRfmtsics4OrPq92',
+        'X-Naver-Client-Secret' : 'XKC8TVhwpT'
+    }
 
-print(res.json()['items'][0])
+    res = requests.get(URL, headers=headers).json()
+    result = res['items'][0]
+    msg = f"{result['title']} : {result['lprice']}원 \n {result['link']}"
+    return msg
+
+# print(get_naver_shopping('오렌지'))
