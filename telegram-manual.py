@@ -1,11 +1,15 @@
 # import
 import requests
 from bs4 import BeautifulSoup
+from dotenv import load_dotenv
+import os
+
 import utils
 
 
 # URL 과 TOKEN 세팅
-TOKEN = '6178945223:AAFZMM3tqF_EDQvUiJc1Rvu2GhTbUz4YMwY'
+
+TOKEN = os.environ['BOT_TOKEN']
 BASE_URL = f'https://api.telegram.org/bot{TOKEN}'
 
 # getUudate 로 메시지 받아오기 
