@@ -6,7 +6,6 @@ headers = {
     'X-Naver-Client-Secret' : 'XKC8TVhwpT'
 }
 
-
 res = requests.get(URL, headers=headers)
 
-print(res.text)
+print(res.json()['items'][0])
