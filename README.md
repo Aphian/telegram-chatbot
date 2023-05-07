@@ -16,7 +16,7 @@ Telegram chatbot 만들기
 - Server
   - Telegram Server
   - `Flask` Server
-- Cloud Service
+  - Cloud Service
   - Python Anywhere
 
 ## 새롭게 배운 내용

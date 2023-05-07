@@ -21,19 +21,19 @@ def telegram():
     # print(chat_id, message)
 
     # Response
-    if message == '주식':
-        return_msg = utils.get_kospi()
+    # if message == '주식':
+    #     return_msg = utils.get_kospi()
 
-    elif message in ['로또', 'lotto', 'Lotto']:
-        return_msg = utils.get_lotto()
+    # if message in ['로또', 'lotto', 'Lotto']:
+    #     return_msg = utils.get_lotto()
 
-    elif message.split()[0] == '쇼핑' :
-        item = message.split()[1]
-        return_msg = utils.get_naver_shopping(item)
+    # elif message.split()[0] == '쇼핑' :
+    #     item = message.split()[1]
+    #     return_msg = utils.get_naver_shopping(item)
 
-    else:
-        return_msg = '모르는 명령어 입니다.'
-    
+    # else:
+    #     return_msg = '모르는 명령어 입니다.'
+    return_msg = '모르는 명령어 입니다.'
     requests.get(BASE_URL + f'/sendMessage?chat_id={chat_id}&text={return_msg}')
 
     return 'Telegram CHATBOT'
